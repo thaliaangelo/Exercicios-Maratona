@@ -9,20 +9,9 @@ int main(){
 
     int n = s.size();
     for (int i = 0; i < n; i++){
-        switch (s[i]){
-        case 'H':
+        if (s[i] == 'H' || s[i] == 'Q' || s[i] == '9' || s[i] == '+'){
             ans++;
-            break;
-        case 'Q':
-            ans ++;
-            break;
-        case '9' :
-            ans ++;
-            break;
-        case '+' :
-            ans++;
-            break;
-        }
+        } 
     }
 
     if (ans != 0){
