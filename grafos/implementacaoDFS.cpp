@@ -7,14 +7,28 @@ const int MAX = 1e5+10; //número máximo de vértices
 vector<vector<int>> g(MAX); //vetor de vértices adjascentes
 vector<bool> vis(MAX); //vetor que guarda se um vértice já foi visitado
 
-void dfs(int v){
+void dfs_1(int v){
     vis[v] = true; //indica que o vértice atual foi visitado
 
     for(auto w : g[v]){
         if (!vis[w]){
-            dfs(w);
+            dfs_1(w);
         }
     }
+
+int visited[MAX];
+
+void dfs(int v){
+    visited[v] = 1;
+
+    for (int x: adj[v]){
+        if (vis[x] != 1){
+            dfs(x);
+        }
+    }
+}
+
+
     /* isso fala que: para todo vértice w pertencente a lista de adjascencia de v, ou seja, seu vizinho, se não foi visitado, é chamado a dfs para o vértice w
     isso é uma recursão
     */
