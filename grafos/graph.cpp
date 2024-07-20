@@ -14,7 +14,7 @@ int main(){
         for(int j = 0; j < k; j++){
             int sup;
             cin >> sup;
-            adj[a + 1][sup + 1] = 1;
+            adj[a][sup] = 1;
         }
 
     }
@@ -24,6 +24,6 @@ int main(){
             cout << adj[i][j] << " ";
         }
 
-        cout << endl;
+        cout << "\n";
     }
 }

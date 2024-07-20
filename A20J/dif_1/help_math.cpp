@@ -20,7 +20,6 @@ int main(){
             trocou = false;
             i = 0;
         }
-        i+= 2;
     }
 
     cout << s << endl;
