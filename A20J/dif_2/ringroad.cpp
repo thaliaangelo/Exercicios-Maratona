@@ -2,15 +2,30 @@
 
 using namespace std;
 
-int arr[112345];
-
 int main(){
     int n, m;
     cin >> n >> m;
-    for (int i = 0; i < n; i++){
-        cin >> arr[i];
+    int ans = 0;
+    queue <int> houses;
+    for (int i = 0; i < m; i++){
+        int x;
+        cin >> x;
+        houses.push(x);
     }
 
-    int t = 1;
-    while()
+    int at = 1;
+    while(!houses.empty()){
+        if (at != houses.front()){
+            at++;
+            ans++;
+        } else {
+            houses.pop();
+        }
+
+        if (at > n){
+            at = 1;
+        }
+    }
+
+    cout << ans << endl;
 }

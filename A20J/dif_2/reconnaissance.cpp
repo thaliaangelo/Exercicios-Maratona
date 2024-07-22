@@ -2,29 +2,35 @@
 
 using namespace std;
 
-int arr[104];
 
 int main(){
     int n;
     cin >> n;
+    int arr[n];
+    
+    for (int i = 0; i < n; i++){
+        arr[i] = 0;
+    }
 
-    for (int i = 1; i <= n; i++){
+    for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
-    int min = abs(arr[n] - arr[1]);
-    int m = n, p = 1;
 
-    for (int i = 1; i <= n; i++){
-        int x = abs(arr[i] - arr[i + 1]);
+    int min = abs(arr[n - 1] - arr[0]);
+    int x = n - 1, y = 0;
 
-        if (x <= min){
-            min = x;
-            m = i;
-            p = i + 1;
+    for (int i = 0; i < (n - 1); i++){
+        if (abs(arr[i] - arr[i + 1]) < min){
+            min = abs(arr[i] - arr[i + 1]);
+            x = i;
+            y = i + 1;
         }
     }
 
-    cout << m << " " << p << endl;
+    x++;
+    y++;
+
+    cout << x << " " << y << endl;
 
 
 }
