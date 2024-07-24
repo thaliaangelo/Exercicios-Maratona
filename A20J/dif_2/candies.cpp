@@ -5,27 +5,19 @@ using namespace std;
 int main(){
     int n, m;
     cin >> n >> m;
-    queue <int> c;
-    map <int, int> ordem;
+    vector<pair<int, int>> children(n + 1);
 
-    int ans = 0;
-
-    for (int i = 0; i < n; i++){
+    for (int i = 1; i <= n; i++){
         int x;
         cin >> x;
-        c.push(x);
-        ordem[i] = x;
+        children[i].first = x;
+        children[i].second = i;
     }
 
-    while(!c.empty()){
-        if (c.front() > m){
-            int sup = c.front() - m;
-            c.push(sup);
+    while(children.size() > 1){
+        if (children[1] <= m){
+            
         }
-
-        c.pop();
     }
-
-
 
 }

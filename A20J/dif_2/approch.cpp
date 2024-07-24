@@ -4,48 +4,40 @@ using namespace std;
 
 int arr[112345];
 
-int vasya(int x, int n){
-    int comp = 0;
-    for (int i = 0; i < n; i++){
-        if (arr[i] != x){
-            comp++;
-        } else {
-            return (comp);
-        }
-    }
-}
-
-int petya(int x, int n){
-    int comp = 0;
-    for (int i = (n - 1); i > 0; i--){
-        if (arr[i] != x){
-            comp++;
-        } else {
-            return (comp);
-        }
-    }
-}
-
 int main(){
     ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int n;
     cin >> n;
 
     for (int i = 0; i < n; i++){
-        cin >> arr[i];
+        cin >> arr[n];
     }
 
-    int m;
-    cin >> m;
+    int q;
+    cin >> q;
 
-    for (int i = 0; i < m; i++){
-        int q;
-        cin >> q;
-        int a = vasya(q, n) + 1;
-        int b = petya(q, n) + 1;
+    for (int i = 0; i < q; i++){
+        int x;
+        cin >> x;
 
-        cout << a << " " << b << endl;
+        int ans_v = 0;
+        int ans_p = 0;
+
+        for (int j = 0; j < n; j++){
+            if (x != arr[j]) ans_v++;
+            else break;
+        }
+
+        for (int j = (n - 1); j > 0; j--){
+            if (x != arr[j]) ans_p++;
+            else break;
+        }
+
+        cout << ans_v << " " << ans_p << endl;
     }
+
+
 }

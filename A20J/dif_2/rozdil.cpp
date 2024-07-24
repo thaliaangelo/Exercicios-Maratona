@@ -3,29 +3,31 @@
 using namespace std;
 
 int main(){
-    int n;
+    long long n;
     cin >> n;
-    set<long long> towns;
-    long long min = 1e18;
-    int ind = 0;
+
+    vector<pair<long long, long long>> cities(n+1);
 
     for (int i = 1; i <= n; i++){
         long long x;
         cin >> x;
-        if (x < min){
-            min = x;
-            ind = i;
+        cities[i].first = x;
+        cities[i].second = i;
+    }
+
+    sort(cities.begin(), cities.end());
+
+    bool same = false;
+    for (int i = 1; i < n; i++){
+        if (cities[i].first == cities[i + 1].first){ 
+            same = true;
+            break;
         }
-
-        towns.insert(x);
     }
 
-    int y = towns.size();
+    if (same) cout << "Still Rozdil\n";
+    else cout << cities[1].second << endl;
 
-    if (y != n){
-        cout << "Still Rozdil\n";
-    } else {
-        cout << ind << endl;
-    }
+
 
 }
