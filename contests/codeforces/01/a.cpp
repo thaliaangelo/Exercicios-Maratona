@@ -3,19 +3,26 @@
 using namespace std;
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     int t;
     cin >> t;
 
-    vector<pair<int, int>> cord(102);
-    for (int i = 1; i < 101; i++){
-        for (int j = 1; j < 101; j++){
-            
-        }
-    }
     while(t--){
-        int n, k;
-        cin >> n >> k;
-        for ()
+        int n;
+        cin >> n;
+        int ans = 0;
+        while(n != 0){
+            if (n >= 4){
+                n -= 4;
+                ans++;
+            } else if (n == 2){
+                n -= 2;
+                ans++;
+            }
+        }
 
+        cout << ans << endl;
     }
 }
