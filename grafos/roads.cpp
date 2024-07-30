@@ -2,35 +2,37 @@
 
 using namespace std;
 
-const int N = 112345;
-vector <int> adj[N];
-bool visited[N + 1];
+vector <int> adj[112345];
+bool visited[112345];
 
-void dfs(int v){
-    if (visited[n]) return;
-    visited[n] = true;
-    for (auto x : adj[n]){
-            dfs(x);
+void dfs (int v){
+    visited[v] = true;
+    for (auto u : adj[v]){
+        if (visited[u]) continue;
+        else dfs(u);
     }
 }
 
 int main(){
-    int n, m;
-    cin >> n >> m;
-    int edges = 0;
-    int ans = 0;
-
+    int n, m; cin >> n >> m;
     for (int i = 0; i < m; i++){
-        int a, b;
-        cin >> a >> b;
+        int a, b; cin >> a >> b;
         adj[a].push_back(b);
-        edges++;
+        adj[b].push_back(a);
     }
 
-        if (edges < (n - 1)){
-            ans = (n - 1) - edges;
-            
-        }
+    int k = n - m - 1;
+    int ans = 0;
+    cout << k << endl;
 
+    dfs(1);
+    for (int i = 2; i <= n; i++){
+        if (visited[i] == false){
+            ans = i;
+            break;
+        }
+    }
+
+    cout << "1" << " " << ans << endl;
 
 }

@@ -3,42 +3,32 @@
 using namespace std;
 
 int main(){
-    int n, t;
-    cin >> n >> t;
-    map<int, string> peoples;
-    vector<int> hab;
+    int n, t; cin >> n >> t;
+    vector <pair<int, string>> people(n);
+    vector <vector<string>> names(t);
 
     for (int i = 0; i < n; i++){
-        string s;
-        cin >> s;
-        int x; cin >> x;
-        peoples[x] = s;
-        hab.push_back(x);
+        string a; cin >> a;
+        int b; cin >> b;
+        people[i].first = b;
+        people[i].second = a;
     }
 
-    sort(hab.begin(), hab.end(), greater<int>());
+    sort(people.begin(), people.end());
 
-    queue<int> hab_m;
-
-    for (auto t: hab){
-        hab_m.push(t);
-    }
-
-    vector<vector<string>> times(t);
-
-    int p = 0;
-    while(!hab_m.empty()){
-        int x = hab_m.front();
-        times[p].push_back(peoples[x]);
-        hab_m.pop();
-        if (p >= t) p = 0;
-        else p++;
+    int ind = 0;
+    for (int i = (n - 1); i > 0; i--){
+        string s = people[i].second;
+        names[ind].push_back(s);
+        if (ind < t) ind++;
+        else ind = 0;
     }
 
     for (int i = 0; i < t; i++){
-        cout << "Time " << i << endl;
-        for (auto n: times[i]){
-            cout << n << endl;
+        int c = i + 1;
+        cout << "Time " << c << endl;
+        for (auto u : names[i]){
+            cout << u << endl;
         }
     }
 }
